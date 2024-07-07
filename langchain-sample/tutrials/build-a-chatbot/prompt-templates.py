@@ -34,10 +34,6 @@ prompt = ChatPromptTemplate.from_messages(
 
 chain = prompt | model
 
-# response = chain.invoke({"messages": [HumanMessage(content="hi! I'm bob")]})
-
-# print(response.content)
-
 with_message_history = RunnableWithMessageHistory(
     chain,
     get_session_history,
