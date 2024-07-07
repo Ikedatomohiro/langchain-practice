@@ -106,3 +106,14 @@ response = with_message_history.invoke(
 )
 
 print(response.content)
+
+# streamingを使うときの書き方例
+config = {"configurable": {"session_id": "abc15"}}
+for r in with_message_history.stream(
+    {
+        "messages": [HumanMessage(content="hi! I'm todd. tell me a joke")],
+        "language": "English",
+    },
+    config=config,
+):
+    print(r.content, end="|")
