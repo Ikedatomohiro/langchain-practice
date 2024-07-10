@@ -28,6 +28,7 @@ docs = loader.load()
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 splits = text_splitter.split_documents(docs)
+
 vectorstore = Chroma.from_documents(documents=splits, embedding=OpenAIEmbeddings())
 
 # Retrieve and generate using the relevant snippets of the blog.
@@ -46,6 +47,6 @@ rag_chain = (
     | StrOutputParser()
 )
 
-res = rag_chain.invoke("What is Task Decomposition?")
+res = rag_chain.invoke("What is the characteristic of human beings? Please answer in Japanese.")
 
 print(res)
