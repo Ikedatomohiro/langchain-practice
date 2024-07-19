@@ -16,5 +16,6 @@ embeddings = embeddings_model.embed_documents(
 )
 print(len(embeddings), len(embeddings[0]))
 
+
 embedded_query = embeddings_model.embed_query("What was the name mentioned in the conversation?")
 print(embedded_query[:5])
